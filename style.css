@@ -1,0 +1,83 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 30px;
+  background: #dff6ff;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+button,
+select {
+  font-size: 22px;
+  padding: 10px 18px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.week,
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.week div {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
+  padding: 12px;
+  background: #eefaff;
+  border: 1px solid #ccc;
+}
+
+.day {
+  min-height: 110px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #ddd;
+  font-size: 22px;
+}
+
+.empty {
+  background: #f7fdff;
+}
+
+.hasTweet {
+  background: #e8f7ff;
+}
+
+.date {
+  font-weight: bold;
+}
+
+.sun,
+.sunday {
+  color: red;
+}
+
+.sat,
+.saturday {
+  color: #0066ff;
+}
+
+a {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  color: #0066ff;
+}
