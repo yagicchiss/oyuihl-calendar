@@ -129,3 +129,33 @@ a:hover {
   }
 
 }
+.title-area {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  background: #dff6ff;
+  padding: 10px 0;
+}
+
+.sns-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.sns-button {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sns-button:hover {
+  transform: scale(1.1);
+}
