@@ -159,3 +159,7 @@ a:hover {
 .sns-button:hover {
   transform: scale(1.1);
 }
+.title-logo {
+  height: 90px;
+  width: auto;
+}
