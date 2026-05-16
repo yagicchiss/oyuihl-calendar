@@ -99,17 +99,13 @@ select {
 /* ===== 日付マス ===== */
 
 .day {
-  min-height: 120px;
-
+  height: 120px;
   padding: 10px;
-
   background: white;
-
   border: 1px solid #ddd;
-
-  overflow-wrap: break-word;
+  overflow: hidden;
+  box-sizing: border-box;
 }
-
 .empty {
   background: #f7fdff;
 }
@@ -142,18 +138,16 @@ select {
 
 a {
   display: block;
-
   margin-top: 6px;
-
   font-size: 14px;
-
   color: #0066ff;
-
   text-decoration: none;
-
   line-height: 1.4;
-}
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 a:hover {
   text-decoration: underline;
 }
@@ -192,11 +186,9 @@ a:hover {
   }
 
   .day {
-    min-height: 90px;
-
-    padding: 6px;
-  }
-
+  height: 90px;
+  padding: 6px;
+}
   .date {
     font-size: 16px;
   }
