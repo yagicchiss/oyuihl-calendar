@@ -137,18 +137,24 @@ select {
 /* ===== ツイートリンク ===== */
 
 a {
-  display: block;
+  display: -webkit-box;
+
   margin-top: 6px;
+
   font-size: 14px;
+
   color: #0066ff;
+
   text-decoration: none;
+
   line-height: 1.4;
 
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
-a:hover {
+
+  -webkit-line-clamp: 3;
+
+  -webkit-box-orient: vertical;
+}a:hover {
   text-decoration: underline;
 }
 
