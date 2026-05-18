@@ -86,7 +86,7 @@ prevBtn.addEventListener("click", () => {
     currentMonth = 1;
   }
 
-  renderCalendar(currentYear, currentMonth);
+  loadTweets(currentYear, currentMonth);
 });
 
 nextBtn.addEventListener("click", () => {
@@ -102,26 +102,64 @@ nextBtn.addEventListener("click", () => {
     currentMonth = 12;
   }
 
-  renderCalendar(currentYear, currentMonth);
+  loadTweets(currentYear, currentMonth);
 });
 
 yearSelect.addEventListener("change", () => {
   currentYear = Number(yearSelect.value);
-  renderCalendar(currentYear, currentMonth);
+  loadTweets(currentYear, currentMonth);
 });
 
 monthSelect.addEventListener("change", () => {
   currentMonth = Number(monthSelect.value);
-  renderCalendar(currentYear, currentMonth);
+  loadTweets(currentYear, currentMonth);
 });
 
-fetch("tweets.json")
-  .then(response => response.json())
-  .then(data => {
-    tweets = data;
-    renderCalendar(currentYear, currentMonth);
-  })
-  .catch(error => {
-    console.error("tweets.jsonの読み込みに失敗しました", error);
-    renderCalendar(currentYear, currentMonth);
-  });
+function loadTweets(year, month) {
+
+  // 2026年4月以前
+  if (
+    year < 2026 ||
+    (year === 2026 && month <= 4)
+  ) {
+
+    fetch("tweets-old.json")
+      .then(response => response.json())
+      .then(data => {
+        tweets = data;
+        renderCalendar(year, month);
+      });
+
+    return;
+  }
+
+  // 2026年5月以降
+  const fileName =
+    `tweets/${year}-${String(month).padStart(2, "0")}.json`;
+
+  fetch(fileName)
+    .then(response => {
+
+      if (!response.ok) {
+        return {};
+      }
+
+      return response.json();
+    })
+
+    .then(data => {
+      tweets = data;
+      renderCalendar(year, month);
+    })
+
+    .catch(error => {
+
+      console.error("読み込み失敗", error);
+
+      tweets = {};
+
+      renderCalendar(year, month);
+    });
+
+}
+loadTweets(currentYear, currentMonth);
